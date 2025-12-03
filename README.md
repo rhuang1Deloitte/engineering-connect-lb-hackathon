@@ -11,7 +11,7 @@ Your team is allowed to use any programming language and tooling to complete thi
  - The work required to meet the requirements must be performed entirely within the load balancer code
  - Libraries can be used, however, load balancer specific libraries are not available for use. Eg. Pingora, pyLoadBalancer
  - Work must be your teams own and cannot be plagarised from another source, even if the source allows unbounded use of that original source
- - Your submission should be distributed as a docker image. This docker image should perform all compilation and packaging steps as part of the docker build. A consumer of your image should not have to install any tooling to create this image except for Podman/Docker. As these containers may run on either ARM64 or AMD64 machines during testing, please provide a bash script each for ARM64 and AMD64 targets. An example submission that satisfies these requirements can be found in this repostory at `/example-team`.
+ - Your submission should be distributed as a docker image. This docker image should perform all compilation and packaging steps as part of the docker build. A consumer of your image should not have to install any tooling to create this image except for Podman/Docker. As these containers may run on either ARM64 or AMD64 machines during testing, please provide a bash script each for ARM64 and AMD64 targets. An example submission that satisfies these requirements can be found in this repostory at `/submissions/example-team`.
  
 ## Win Conditions
 
@@ -21,13 +21,13 @@ There are two oppertunities to win this hackathon:
  
 ## Making Your Submission
 
-To start your submission fork this repository and create a folder in the root directory with your team name as the name. 
+To start your submission fork this repository and create a folder under the `/submissions` directory with your team name as the name. 
 Instructions for how to fork a repository can be found here: [Fork A Repo](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)
 
 Once your team has completed the implementation make a pull request back to the original repository. This pull request will be approved by the submission closing time.
 Instructions for how to make a pull request into the original repository can be found here: [Creating A Pull Request From A Fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)
 
-An example submission can be found in this repostory at `/example-team`.
+An example submission can be found in this repostory at `/submissions/example-team`.
 
 All submissions will be licenced under the GNU General Public License Version 2, a copy of which can be found in this respository and at this link: [GNU General Public License, Version 2.](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
