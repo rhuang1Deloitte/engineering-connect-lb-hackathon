@@ -91,7 +91,7 @@ For example, if you have two targets, A and B, the load balancer alternate reque
 
 *For this feature to be considered completed, your load balancer should evenly distribute requests to targets in a target group.*
 
-#### **Bounded set of error responses**
+#### **Robust Error Handling**
 
 Any errors from upstream services ***should*** have their status code and payload returned unchanged, to the caller.  
 
@@ -117,7 +117,16 @@ For example, if there is some listener rule `/some/uri` that routes to the targe
 
 #### **Proper Use of Header Conventions**
 
-For this feature to be considered completed, your load balancer ***should*** add headers to upstream requests, as specificed [in this article](https://docs.oracle.com/en-us/iaas/Content/Balance/Reference/httpheaders.htm)*
+For this feature to be considered completed, your load balancer ***should*** add headers to upstream requests, as specificed [in this article](https://docs.oracle.com/en-us/iaas/Content/Balance/Reference/httpheaders.htm), excluding the `X-Request-Id` header.
+
+The following headers ***should*** be implemented:
+ - `X-Forwarded-For`: Provides a list of connection IP addresses
+ - `X-Forwarded-Host`: Identifies the original host and port requested by the client in the host HTTP request header
+ - `X-Forwarded-Port`: Identifies the listener port number that the client used to connect to the load balancer
+ - `X-Forwarded-Proto`: Identifies the protocol that the client used to connect to the load balancer. HTTP/HTTPS
+ - `X-Real-IP`: Identifies the client's IP address
+ - `X-Request-Id`: The Request ID can help you with tracking and managing a request
+ - `Host`: identifies the original host and optionally the port requested by the client
 
 This feature ***may*** be togglable using the following environment variable:
  - `HEADER_CONVENTION_ENABLE`, (boolean): Disables processing of convential headers 
