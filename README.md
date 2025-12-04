@@ -8,6 +8,11 @@ The task is to code your own load balancer implementation with a focus on either
 
 Your team is allowed to use any programming language and tooling to complete this hackathon! See [Constraints](#Constraints) for restrictions. The only restriction is that you must provide Dockerfile so that your implementation can be built.
 
+Recommended libraries (if your language doesn't include standard implementations) are:
+ - HTTP Server and Client
+ - Structured environment configuration
+ - Logging
+
 There are two paths to victory, to be eligible for the performance crown you only need to implement the base requirements. The utility prize is for the team that implements the most stretch requirements with tie being resolved with the highest performance implementation. Performance will be evaluated with a combination of latency, throughput, and concurrency.
 
 ## Constraints
