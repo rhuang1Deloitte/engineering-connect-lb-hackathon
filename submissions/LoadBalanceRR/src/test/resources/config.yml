@@ -1,0 +1,48 @@
+lbConfig:
+  # Default balancing algorithm: ROUND_ROBIN, WEIGHTED, STICKY, LRT
+  algorithm: ROUND_ROBIN
+  targetGroups:
+    # each target group represents a backend service
+    # multiple target groups can be defined for different services
+    # targetGroups are keyed by a unique name
+    # A targetGroup has:
+    # - path (mandatory): URL path prefix for this target group
+    # - algorithm (optional): load balancing algorithm for this target group
+    # - targets (mandatory): list of target servers for this target group. Each target has:
+    #   - url (mandatory): target server URL
+    #   - weight (optional): weight for WEIGHTED algorithm
+    # - healthCheck (optional): configuration for health checking the targets
+    # - pathRewrite (optional): path prefix to strip from URI before forwarding to targets
+    
+    # 'echo' is an example of a minimal target group using default algorithm without health checks
+    echo:
+      path: /echo/
+      targets:
+        - url: http://localhost:8090
+    
+    # 'trio' is an example of a fully-specified target group using WEIGHTED algorithm with health checks
+    trio:
+      path: /trio/
+      algorithm: WEIGHTED
+      targets:
+        - url: http://localhost:8090
+          weight: 1
+        - url: http://localhost:8091
+          weight: 2
+        - url: http://localhost:8092
+          weight: 4
+      healthCheck:
+        enabled: true
+        path: /healthz
+        interval: 5000
+        successThreshold: 1
+        failureThreshold: 3
+    
+    # Example showing pathRewrite feature
+    # When a request comes to /api/v1/users, it will be forwarded to targets as /users
+    # (the /api/v1 prefix is stripped)
+    rewrite:
+      path: /api/rewrite/
+      pathRewrite: /api/
+      targets:
+        - url: http://localhost:8090
