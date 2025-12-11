@@ -190,7 +190,7 @@ This algorithm routes requests to target within a target group based on a combin
 
 When a request is sent to the load balancer, the target is chosen by multiplying the number of connections by the average TTFB for each target, and then chosen the target with the lowest value.
 
-*For this feature to be considered implemented target weights should be configurable, the value 'LRT' should be valid for the LOAD_BALANCING_ALGORITHM configuration, and targets should recieve requests according to their calculated requests and latency.*
+*For this feature to be considered implemented the value 'LRT' should be valid for the LOAD_BALANCING_ALGORITHM configuration, and targets should recieve requests according to their calculated requests and latency.*
 
 #### **Request Retries**
 
